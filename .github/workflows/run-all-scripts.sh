@@ -1,6 +1,8 @@
 #!/bin/bash
 
-DIRS=`/usr/bin/find ./ -type d -not -path '*/\.*'`
+set -e
+
+DIRS=`ls -1d */`
 for DIR in $DIRS
 do
   cd $DIR
