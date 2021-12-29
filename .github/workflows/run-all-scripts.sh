@@ -1,9 +1,15 @@
 #!/bin/bash
 
-for SCRIPT in `/usr/bin/find ./ -name "*.sh" -not -path "./github/*"`
+DIRS=`/usr/bin/find ./ -type d -not -path '*/\.*'`
+for DIR in $DIRS
 do
-  echo "***********************************************************************"
-  echo "$SCRIPT" 
-  echo "***********************************************************************"
-  bash $SCRIPT
+  cd $DIR
+  for SCRIPT in `/usr/bin/find ./ -name "*.sh"`
+  do
+    echo "***********************************************************************"
+    echo "$SCRIPT" 
+    echo "***********************************************************************"
+    bash $SCRIPT
+  done
+  cd -
 done
