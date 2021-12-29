@@ -1,9 +1,9 @@
 #!/bin/bash
 
-for SCRIPT in `/usr/bin/find ./ -name "*.sh"`
+for SCRIPT in `/usr/bin/find ./ -name "*.sh" -not -path "./github/*"`
 do
   echo "***********************************************************************"
-  echo "Running script: $SCRIPT" 
+  echo "$SCRIPT" 
   echo "***********************************************************************"
-  $SCRIPT
+  bash $SCRIPT
 done
